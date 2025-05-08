@@ -36,7 +36,7 @@ Install from PyPI:
 
 ```bash
 pip install llama-tools-jaliya
-
+```
 
 
 
@@ -187,6 +187,57 @@ llama-tools-jaliya status
 See: [https://github.com/ggerganov/llama.cpp#quantization](https://github.com/ggerganov/llama.cpp#quantization)
 
 ---
+
+Here is the **enhanced `README.md`** including a new section:
+**📁 Package Structure & Modules**, which shows how each file in the `llama_tools_jaliya` package maps to a command/function in your CLI.
+
+---
+
+### ✅ Paste this at the end of your `README.md` or right after the "Commands & Functions" section.
+
+---
+
+## 📁 Package Structure & Modules
+
+Here’s how the `llama_tools_jaliya` package is organized and what each file does:
+
+```
+llama_tools_jaliya/
+├── __init__.py                  # Exposes key functions for import
+├── __main__.py                  # CLI entrypoint for argparse
+├── setup_llama_cpp.py           # Build llama.cpp using CMake + Ninja
+├── venv.py                      # Set up Python virtual environment
+├── convert_and_quantize.py      # Convert HF model to GGUF + quantize
+├── push_gguf.py                 # Upload GGUF to Hugging Face
+├── server.py                    # Run llama-server locally
+├── utils.py                     # Clean-up and show environment status
+```
+
+### 🔹 Module-to-Command Mapping
+
+| CLI Command  | Python Function                  | Module                    |
+| ------------ | -------------------------------- | ------------------------- |
+| `clone`      | `clone_llama_cpp()`              | `setup_llama_cpp.py`      |
+| `setup`      | `setup_llama(jobs, create_venv)` | `setup_llama_cpp.py`      |
+| `venv`       | `create_virtualenv()`            | `venv.py`                 |
+| `convert`    | `convert_model(...)`             | `convert_and_quantize.py` |
+| `upload`     | `push_gguf(...)`                 | `push_gguf.py`            |
+| `run-server` | `run_llama_server(gguf_model)`   | `server.py`               |
+| `clean`      | `clean_build_dirs()`             | `utils.py`                |
+| `status`     | `show_status()`                  | `utils.py`                |
+
+Each of these functions is also exposed for programmatic use via:
+
+```python
+from llama_tools_jaliya import setup_llama, convert_model, push_gguf, run_llama_server, clean_build_dirs, show_status
+```
+
+---
+
+This gives users and developers a clear view of your package’s internal architecture, making it easier to contribute, debug, or extend.
+
+Would you like me to also generate a `CONTRIBUTING.md` for developers or a `Makefile` for automation?
+
 
 ##  Development
 
