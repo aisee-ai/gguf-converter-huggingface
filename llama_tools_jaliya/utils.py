@@ -2,8 +2,10 @@ import shutil
 import os
 from pathlib import Path
 
-
 def clean_build_dirs():
+    """
+    Deletes the build and model output directories to reset the workspace.
+    """
     paths = ["llama.cpp/build", "models"]
     removed = []
 
@@ -18,16 +20,19 @@ def clean_build_dirs():
     else:
         print("Nothing to clean.")
 
-
 def show_status():
+    """
+    Displays the current status of the llama.cpp repo, build directory,
+    models folder, and virtual environment.
+    """
     llama_repo = Path("llama.cpp")
     build_dir = llama_repo / "build"
     models_dir = Path("models")
     venv_dir = Path.home() / "llama-cpp-venv"
 
     def check(path, description):
-        exists = "exits" if path.exists() else "doesn't exists"
-        print(f"{exists} {description}: {path}")
+        status = "exists" if path.exists() else "does NOT exist"
+        print(f"{description}: {status} -> {path}")
 
     print("Environment Status:")
     check(llama_repo, "llama.cpp repo")
