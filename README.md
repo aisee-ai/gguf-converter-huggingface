@@ -69,6 +69,8 @@ llama-tools-jaliya setup -j 8 --create-venv
 
 > **Windows Users:** Install CMake, Ninja, Visual Studio Build Tools with C++ components. Use PowerShell or Git Bash.
 
+Here’s the updated section with activation instructions for different operating systems:
+
 ---
 
 ### Create Virtual Environment
@@ -77,7 +79,36 @@ llama-tools-jaliya setup -j 8 --create-venv
 llama-tools-jaliya venv
 ```
 
+Once created, activate the virtual environment:
+
+**Linux / macOS (bash/zsh):**
+
+```bash
+source ~/llama-cpp-venv/bin/activate
+```
+
+**Windows (PowerShell):**
+
+```powershell
+~\llama-cpp-venv\Scripts\Activate.ps1
+```
+
+**Windows (Command Prompt):**
+
+```cmd
+%USERPROFILE%\llama-cpp-venv\Scripts\activate.bat
+```
+
+To deactivate the environment, simply run:
+
+```bash
+deactivate
+```
+
 ---
+
+Would you like me to add a check that prints these platform-specific instructions from within the CLI?
+
 
 ### Convert & Quantize HF Model
 

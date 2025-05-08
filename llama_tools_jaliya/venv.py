@@ -25,3 +25,4 @@ def create_virtualenv():
     print(f"Installing requirements from: {requirements_path}")
     subprocess.run([str(python_in_venv), "-m", "pip", "install", "--upgrade", "-r", requirements_path], check=True)
     print("Requirements installed successfully.")
+    print("Activate the (llama-cpp-venv)")
