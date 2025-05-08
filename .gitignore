@@ -1,1 +1,16 @@
-.gguf
+# macOS system files
+.DS_Store
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+__pycache__/
+
+# Compiled model files
+*.gguf
+
+# Python cache
+*.pyc
+*.pyo
+*.pyd
