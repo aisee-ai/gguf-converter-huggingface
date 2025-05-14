@@ -48,7 +48,6 @@ def convert_model(
 
         # Quantize (only if quant_type and quantized_output are provided)
         if quant_type and quantized_output:
-            print("here")
             quantize_command = [
                 "llama.cpp/build/bin/llama-quantize",
                 gguf_output,

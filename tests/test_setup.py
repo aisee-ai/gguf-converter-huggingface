@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from llama_tools_jaliya.setup_llama_cpp import setup_llama, clone_llama_cpp
+from llama_tools_jaliya import setup_llama, clone_llama_cpp
 
 class TestSetupLlama(unittest.TestCase):
     @patch("llama_tools_jaliya.setup_llama_cpp.subprocess.run")

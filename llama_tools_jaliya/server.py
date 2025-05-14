@@ -44,10 +44,11 @@ def run_llama_server(gguf_model: str):
         raise
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Run llama.cpp server with a GGUF model")
     parser.add_argument("--gguf_model", required=True, help="Path to the .gguf model file")
-
     args = parser.parse_args()
-
     run_llama_server(gguf_model=args.gguf_model)
+
+if __name__ == "__main__":
+    main()

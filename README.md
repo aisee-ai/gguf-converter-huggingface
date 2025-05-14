@@ -107,8 +107,6 @@ deactivate
 
 ---
 
-Would you like me to add a check that prints these platform-specific instructions from within the CLI?
-
 
 ### Convert & Quantize HF Model
 
