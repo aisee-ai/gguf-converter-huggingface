@@ -57,17 +57,6 @@ llama-tools-aisee <command> [options]
 ```bash
 llama-tools-aisee clone
 ```
-
----
-
-### Build with CMake + Ninja
-
-```bash
-llama-tools-aisee setup -j 8
-```
-
-> **Windows Users:** Install CMake, Ninja, Visual Studio Build Tools with C++ components. Use PowerShell or Git Bash.
-
 ---
 
 ### Create Virtual Environment (Manual Setup)
@@ -119,8 +108,18 @@ To deactivate the environment, simply run:
 deactivate
 ```
 
+
 ---
 
+### Build with CMake + Ninja
+
+```bash
+llama-tools-aisee setup -j 8
+```
+
+> **Windows Users:** Install CMake, Ninja, Visual Studio Build Tools with C++ components. Use PowerShell or Git Bash.
+
+---
 
 ### Convert & Quantize HF Model
 
