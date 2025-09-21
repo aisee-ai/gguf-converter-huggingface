@@ -1,10 +1,10 @@
 import argparse
-from llama_tools_jaliya.setup_llama_cpp import setup_llama, clone_llama_cpp
-from llama_tools_jaliya.venv import create_virtualenv
-from llama_tools_jaliya.convert_and_quantize import convert_model
-from llama_tools_jaliya.utils import clean_build_dirs, show_status
-from llama_tools_jaliya.push_gguf import push_gguf
-from llama_tools_jaliya.server import run_llama_server
+from llama_tools_aisee.setup_llama_cpp import setup_llama, clone_llama_cpp
+from llama_tools_aisee.venv import create_virtualenv
+from llama_tools_aisee.convert_and_quantize import convert_model
+from llama_tools_aisee.utils import clean_build_dirs, show_status
+from llama_tools_aisee.push_gguf import push_gguf
+from llama_tools_aisee.server import run_llama_server
 
 # Help message for quantization options
 quant_types_help = """\

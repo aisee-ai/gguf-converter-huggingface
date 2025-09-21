@@ -1,11 +1,11 @@
 import unittest
 from unittest.mock import patch, call
-from llama_tools_jaliya import convert_model
+from llama_tools_aisee import convert_model
 from subprocess import CalledProcessError
 
 class TestConvertModel(unittest.TestCase):
 
-    @patch("llama_tools_jaliya.convert_and_quantize.subprocess.run")
+    @patch("llama_tools_aisee.convert_and_quantize.subprocess.run")
     def test_convert_model_basic(self, mock_run):
         convert_model(
             hf_model="facebook/opt-125m",
@@ -21,7 +21,7 @@ class TestConvertModel(unittest.TestCase):
             "model.gguf"
         ], check=True)
 
-    @patch("llama_tools_jaliya.convert_and_quantize.subprocess.run")
+    @patch("llama_tools_aisee.convert_and_quantize.subprocess.run")
     def test_convert_model_with_quantization(self, mock_run):
         convert_model(
             hf_model="facebook/opt-125m",
@@ -49,13 +49,11 @@ class TestConvertModel(unittest.TestCase):
             ], check=True)
         ])
 
-    @patch("llama_tools_jaliya.convert_and_quantize.subprocess.run")
-    def test_convert_model_raises_called_process_error(self, mock_run):
-    # Simulate a failure during subprocess.run
+    @patch("llama_tools_aisee.convert_and_quantize.subprocess.run")
+    def test_convert_model_logs_error(self, mock_run):
         mock_run.side_effect = CalledProcessError(returncode=1, cmd="fake_command")
 
-        with self.assertRaises(CalledProcessError):
-            convert_model(
-                hf_model="facebook/opt-125m",
-                gguf_output="model.gguf"
-            )
+        with self.assertLogs("llama_tools_aisee.convert_and_quantize", level="ERROR") as cm:
+            convert_model(hf_model="facebook/opt-125m", gguf_output="model.gguf")
+        
+        self.assertTrue(any("Model conversion failed!" in msg for msg in cm.output))
