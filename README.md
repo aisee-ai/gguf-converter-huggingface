@@ -252,7 +252,6 @@ run_llama_server("models/7b-q4.gguf")
 llama_tools_aisee/
 ├── __main__.py                  # CLI Entrypoint
 ├── setup_llama_cpp.py           # llama.cpp build logic
-├── venv.py                      # Virtualenv setup
 ├── convert_and_quantize.py      # HF → GGUF conversion
 ├── push_gguf.py                 # Upload to Hugging Face
 ├── server.py                    # Run llama-server
@@ -284,7 +283,7 @@ pytest tests/test_main.py -v
 - **Model Conversion (`convert_and_quantize.py`)**: Testing conversion, quantization, and error handling
 - **Setup & Build (`setup_llama_cpp.py`)**: Repository cloning, building, and error scenarios
 - **File Upload (`push_gguf.py`)**: Hugging Face Hub upload functionality
-- **Utilities (`utils.py`, `venv.py`, `server.py`)**: Supporting functions and utilities
+- **Utilities (`utils.py`, `server.py`)**: Supporting functions and utilities
 
 ### Recent Test Improvements
 
