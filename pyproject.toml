@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llama-tools-aisee"
-version = "0.1.4"
+version = "0.1.5"
 description = "Utility for building and running llama.cpp"
 authors = [
     { name="Jaliya Nimantha", email="jaliya@ahlab.org" }

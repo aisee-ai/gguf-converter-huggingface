@@ -28,7 +28,7 @@ Full command: llama.cpp/build/bin/llama-quantize --help
 
 def main():
     parser = argparse.ArgumentParser(description="llama-tools CLI")
-    subparsers = parser.add_subparsers(dest="command", required=True)
+    subparsers = parser.add_subparsers(dest="command")
 
     # Subcommand: setup - Builds llama.cpp using CMake & Ninja
     setup_parser = subparsers.add_parser("setup", help="Build llama.cpp")
@@ -67,6 +67,13 @@ def main():
 
     # Parse and dispatch to appropriate function
     args = parser.parse_args()
+
+    if not args.command:
+        print("\nWelcome to llama-tools-aisee!")
+        print("You need to specify a command to run.")
+        print("Available commands: setup, clone, venv, clean, status, convert, upload, run-server")
+        print("Use `llama-tools-aisee -h` for more details on each command.\n")
+        return  # exit gracefully without error
 
     if args.command == "setup":
         setup_llama(jobs=args.jobs, create_venv=args.create_venv)

@@ -42,7 +42,6 @@ llama-tools-aisee <command> [options]
 | ------------ | ------------------------------------- | ----------------------- |
 | `clone`      | Clone `llama.cpp` repo                | `clone_llama_cpp()`     |
 | `setup`      | Build `llama.cpp` (CMake + Ninja)     | `setup_llama()`         |
-| `venv`       | Create a Python virtual environment   | `create_virtualenv()`   |
 | `convert`    | Convert HF model to GGUF and quantize | `convert_model(...)`    |
 | `upload`     | Upload `.gguf` to Hugging Face        | `push_gguf(...)`        |
 | `run-server` | Start local inference server          | `run_llama_server(...)` |
@@ -64,37 +63,54 @@ llama-tools-aisee clone
 ### Build with CMake + Ninja
 
 ```bash
-llama-tools-aisee setup -j 8 --create-venv
+llama-tools-aisee setup -j 8
 ```
 
 > **Windows Users:** Install CMake, Ninja, Visual Studio Build Tools with C++ components. Use PowerShell or Git Bash.
 
 ---
 
-### Create Virtual Environment
+### Create Virtual Environment (Manual Setup)
+
+After cloning the repository, create and activate a virtual environment manually:
+
+**Linux / macOS:**
 
 ```bash
-llama-tools-aisee venv
-```
+# Create virtual environment
+python3 -m venv llama_cpp_env
 
-Once created, activate the virtual environment:
+# Activate the virtual environment
+source llama_cpp_env/bin/activate
 
-**Linux / macOS (bash/zsh):**
-
-```bash
-source ~/llama-cpp-venv/bin/activate
+# Install requirements from llama.cpp
+pip install -r llama.cpp/requirements/requirements-convert_hf_to_gguf.txt
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
-~\llama-cpp-venv\Scripts\Activate.ps1
+# Create virtual environment
+python -m venv llama_cpp_env
+
+# Activate the virtual environment
+llama_cpp_env\Scripts\Activate.ps1
+
+# Install requirements from llama.cpp
+pip install -r llama.cpp\requirements\requirements-convert_hf_to_gguf.txt
 ```
 
 **Windows (Command Prompt):**
 
 ```cmd
-%USERPROFILE%\llama-cpp-venv\Scripts\activate.bat
+# Create virtual environment
+python -m venv llama_cpp_env
+
+# Activate the virtual environment
+llama_cpp_env\Scripts\activate.bat
+
+# Install requirements from llama.cpp
+pip install -r llama.cpp\requirements\requirements-convert_hf_to_gguf.txt
 ```
 
 To deactivate the environment, simply run:
