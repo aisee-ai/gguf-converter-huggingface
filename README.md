@@ -13,7 +13,6 @@ A Python package and CLI tool for building, converting, quantizing, and uploadin
 * Convert HF models to GGUF format
 * Quantize with precision options like `Q4_0`, `Q5_1`, `TQ1_0`, etc.
 * Upload `.gguf` models to Hugging Face Hub
-* Set up a Python virtual environment
 * Run everything via CLI or Python API
 
 ---
