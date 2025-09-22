@@ -15,7 +15,7 @@ def clone_llama_cpp(
 ) -> Path:
     """Clone llama.cpp repo into repo_dir if missing and return the resolved path."""
     if repo_dir is None:
-        repo_dir = Path.home() / ".cache" / "llama-tools-aisee" / "llama.cpp"
+        repo_dir = Path.cwd() / "llama.cpp"
     else:
         repo_dir = Path(repo_dir)
 
