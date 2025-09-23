@@ -259,7 +259,7 @@ llama_tools_aisee/
 
 ---
 
-## 🧪 Testing
+## Testing
 
 The package includes comprehensive unit tests with high coverage:
 
