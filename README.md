@@ -312,12 +312,6 @@ pytest tests/
 
 ---
 
-## 📄 License
-
-MIT License
-
----
-
 ## 👤 Author
 
 **Jaliya Nimantha**
